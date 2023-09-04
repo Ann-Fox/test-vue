@@ -33,6 +33,7 @@ const products = [
       <h3>Action</h3>
     </section>
     <section class="catalog">
+      <CatalogItem></CatalogItem>
       <CatalogItem v-for="product in products" :key="product.id" :name-product = 'product.name' :price-product="product.price">
       </CatalogItem>
     </section>
