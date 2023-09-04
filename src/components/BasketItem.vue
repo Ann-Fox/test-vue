@@ -1,5 +1,5 @@
 <script setup>
-// import { useCounterStore } from '../stores/counter';
+import { useCounterStore } from '../stores/counter';
 
 defineProps({
  nameProduct: {
@@ -20,7 +20,7 @@ defineProps({
  }
 })
 
-// const store = useCounterStore()
+const store = useCounterStore()
 </script>
 
 <template>
@@ -28,7 +28,9 @@ defineProps({
   <div>{{ nameProduct }}</div>
   <div>{{ priceProduct }}</div>
   <div>{{ qtyProduct }}</div>
-  <div>{{ priceProduct*qtyProduct }}</div>
+  <div>{{ priceProduct*qtyProduct }}
+  <button @click="() => store.remove(indexProduct)">del</button>
+</div>
 </div>
 </template>
 
