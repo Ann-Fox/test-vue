@@ -1,8 +1,18 @@
 <script setup>
 import BasketItem from '../components/BasketItem.vue'
 import { useCounterStore } from '../stores/counter';
+import { computed } from 'vue';
 
 const store = useCounterStore()
+
+const totalSum = computed(() => {
+let totalItem = 0
+
+store.items.forEach((item) => {
+  totalItem = totalItem + Math.round(item.price * item.qty)
+})
+return totalItem
+})
 </script>
 
 <template>
@@ -20,9 +30,14 @@ const store = useCounterStore()
      :name-product="item.name"
      :price-product="item.price"
      :qty-product="item.qty"
-     :index-product="index"></BasketItem>
+     :index-product="index">
+    </BasketItem>
   </div>
 
+<div class="total">
+  <p>Total</p>
+  {{ totalSum }}
+</div>
 </template>
 
 <style>
