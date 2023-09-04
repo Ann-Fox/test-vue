@@ -1,8 +1,6 @@
 <script setup>
-// import WelcomeItem from './WelcomeItem.vue'
-// import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
-// import { useCounterStore } from '../stores/counter'
+import { useCounterStore } from '../stores/counter'
 
 const props = defineProps ({
 nameProduct: {
@@ -15,11 +13,20 @@ priceProduct: {
 }
 })
 
-// const store = useCounterStore()
+const store = useCounterStore()
 
 const qty = ref(0)
 const numCalc = ref([1,2,3,4,5,6,7,8,9])
 const showCalc  = ref(false)
+
+const addProduct = () => {
+  store.add({
+    name: props.nameProduct,
+    price: props.priceProduct,
+    qty: qty.value
+  })
+  qty.value = 0
+}
 </script>
 
 <template>
@@ -45,7 +52,7 @@ const showCalc  = ref(false)
     <input type="number" v-model="qty">
     <button @click="qty++">+</button>
     <button @click="qty--">-</button>
-    <button :disabled="qty <= 0">basket</button>
+    <button :disabled="qty <= 0" @click="addProduct">basket</button>
   </div>
 
 </section>

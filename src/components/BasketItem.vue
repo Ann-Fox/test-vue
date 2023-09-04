@@ -1,44 +1,43 @@
 <script setup>
+// import { useCounterStore } from '../stores/counter';
+
 defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
+ nameProduct: {
+  type: String,
+  required: true
+ },
+ priceProduct: {
+  type: Number,
+  required: true
+ },
+ qtyProduct: {
+  type: Number,
+  required: true
+ },
+ indexProduct: {
+  type: Number,
+  required: true,
+ }
 })
+
+// const store = useCounterStore()
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
-  </div>
+<div class="basket__item">
+  <div>{{ nameProduct }}</div>
+  <div>{{ priceProduct }}</div>
+  <div>{{ qtyProduct }}</div>
+  <div>{{ priceProduct*qtyProduct }}</div>
+</div>
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
+.basket__item {
+  display: grid;
+  grid-template-columns: 2fr repeat(2, 1fr) 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 0px;
 }
 </style>

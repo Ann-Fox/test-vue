@@ -2,8 +2,11 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
-  const item = ref([])
+  const items = ref([])
 
+  function add(item) {
+    items.value.push(item)
+  }
 
-  return { item }
+  return { items, add }
 })
