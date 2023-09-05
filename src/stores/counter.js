@@ -12,5 +12,9 @@ export const useCounterStore = defineStore('counter', () => {
     items.value.splice(index, 1)
   }
 
-  return { items, add, removeProduct }
+  function removeAll(){
+    items.value = []
+  }
+
+  return { items, add, removeProduct, removeAll }
 })

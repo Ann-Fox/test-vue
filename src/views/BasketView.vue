@@ -22,6 +22,11 @@ const GoAndShow = () => {
   router.push('/')
 }
 
+const removeAllAndGo = () => {
+store.removeAll()
+console.log('remove')
+router.push('/')
+}
 </script>
 
 <template>
@@ -50,7 +55,7 @@ const GoAndShow = () => {
 
 <div class="basket__btn">
   <button @click="GoAndShow">Берем!</button>
-  <button>Пожалуй, откажусь</button>
+  <button @click="removeAllAndGo">Пожалуй, откажусь</button>
 </div>
 </template>
 
