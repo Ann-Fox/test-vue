@@ -29,7 +29,7 @@ const store = useCounterStore()
   <div>{{ priceProduct }}</div>
   <div>{{ qtyProduct }}</div>
   <div>{{ priceProduct*qtyProduct }}
-  <button @click="() => store.remove(indexProduct)">del</button>
+  <button @click="() => store.removeProduct(indexProduct)">del</button>
 </div>
 </div>
 </template>

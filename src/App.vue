@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useCounterStore } from './stores/counter';
+const store = useCounterStore()
 </script>
 
 <template>
@@ -8,12 +10,14 @@ import { RouterLink, RouterView } from 'vue-router'
      
       <nav>
         <RouterLink to="/">Catalog</RouterLink>
-        <RouterLink to="/basket">Basket</RouterLink>
+        <RouterLink to="/basket">Basket ({{ store.items.length }})</RouterLink>
       </nav>
     </div>
   </header>
-
-  <RouterView />
+<div>
+   <RouterView />
+</div>
+ 
 </template>
 
 <style scoped>

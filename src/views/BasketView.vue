@@ -38,6 +38,11 @@ return totalItem
   <p>Total</p>
   {{ totalSum }}
 </div>
+
+<div class="basket__btn">
+  <button></button>
+  <button></button>
+</div>
 </template>
 
 <style>
