@@ -2,6 +2,7 @@
 import BasketItem from '../components/BasketItem.vue'
 import { useCounterStore } from '../stores/counter';
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const store = useCounterStore()
 
@@ -13,6 +14,14 @@ store.items.forEach((item) => {
 })
 return totalItem
 })
+// Откуда взяли useRouter()?
+const router = useRouter()
+
+const GoAndShow = () => {
+  console.log(JSON.stringify(store.items))
+  router.push('/')
+}
+
 </script>
 
 <template>
@@ -40,8 +49,8 @@ return totalItem
 </div>
 
 <div class="basket__btn">
-  <button></button>
-  <button></button>
+  <button @click="GoAndShow">Берем!</button>
+  <button>Пожалуй, откажусь</button>
 </div>
 </template>
 

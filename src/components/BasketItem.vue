@@ -24,14 +24,14 @@ const store = useCounterStore()
 </script>
 
 <template>
-<div class="basket__item">
-  <div>{{ nameProduct }}</div>
-  <div>{{ priceProduct }}</div>
-  <div>{{ qtyProduct }}</div>
-  <div>{{ priceProduct*qtyProduct }}
-  <button @click="() => store.removeProduct(indexProduct)">del</button>
-</div>
-</div>
+  <div class="basket__item">
+    <div>{{ nameProduct }}</div>
+    <div>{{ priceProduct }}</div>
+    <div>{{ qtyProduct }}</div>
+    <div>{{ priceProduct*qtyProduct }}
+      <button @click="() => store.removeProduct(indexProduct)">del</button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
